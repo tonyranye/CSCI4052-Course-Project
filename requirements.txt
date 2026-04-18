@@ -7,3 +7,9 @@ numpy
 scikit-learn
 matplotlib
 fiftyone
+datasets
+av
+pandas
+tqdm
+gradio
+torchcodec
