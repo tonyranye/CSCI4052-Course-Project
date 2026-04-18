@@ -17,7 +17,24 @@ class DeploymentConfig:
     min_ready_frames: int
     infer_every_n: int
     smoothing_window: int
+    prob_smoothing_window: int
     img_size: int
+    detect_every_n: int
+    bbox_hold_frames: int
+    min_confidence: float
+    motion_gate_enabled: bool
+    motion_gate_threshold: float
+    webcam_width: int
+    webcam_height: int
+    annotated_width: int
+    annotated_height: int
+
+
+def _env_bool(name: str, default: bool) -> bool:
+    value = os.getenv(name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 
@@ -80,5 +97,15 @@ def build_config() -> DeploymentConfig:
         min_ready_frames=max(1, min(num_frames, min_ready)),
         infer_every_n=max(1, int(os.getenv("ASL_INFER_EVERY_N", "2"))),
         smoothing_window=max(1, int(os.getenv("ASL_SMOOTHING_WINDOW", "4"))),
+        prob_smoothing_window=max(1, int(os.getenv("ASL_PROB_SMOOTHING_WINDOW", "5"))),
         img_size=int(os.getenv("ASL_IMG_SIZE", "224")),
+        detect_every_n=max(1, int(os.getenv("ASL_DETECT_EVERY_N", "2"))),
+        bbox_hold_frames=max(1, int(os.getenv("ASL_BBOX_HOLD_FRAMES", "10"))),
+        min_confidence=float(os.getenv("ASL_MIN_CONFIDENCE", "0.25")),
+        motion_gate_enabled=_env_bool("ASL_MOTION_GATE_ENABLED", True),
+        motion_gate_threshold=float(os.getenv("ASL_MOTION_GATE_THRESHOLD", "4.5")),
+        webcam_width=int(os.getenv("ASL_WEBCAM_WIDTH", "480")),
+        webcam_height=int(os.getenv("ASL_WEBCAM_HEIGHT", "320")),
+        annotated_width=int(os.getenv("ASL_ANNOTATED_WIDTH", "480")),
+        annotated_height=int(os.getenv("ASL_ANNOTATED_HEIGHT", "320")),
     )
