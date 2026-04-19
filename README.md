@@ -1,6 +1,7 @@
 # ASL Sign Language Interpreter CSCI 4052U Final Project
 
 **Team:** Tony Akinniranye, Lukas Fenkam, Jaathavan Ranjanathan
+
 **Course:** CSCI 4052U - Machine Learning II, Ontario Tech University
 
 ---
@@ -206,7 +207,7 @@ Optional environment overrides:
 ### Deployment Runtime Options
 
 - Local GPU deployment (current default): run `python deployment/app.py`.
-- Colab-friendly path (optional): run notebook pipeline and Gradio in Colab when local GPU resources are unavailable.
+- Colab-friendly path (optional): run notebook pipeline and Gradio in Colab
 
 ## Validation Snapshot (Current Top100 Run)
 
