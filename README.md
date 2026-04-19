@@ -222,15 +222,7 @@ From `processed/wlasl_top100/val_topk_summary.csv`:
 
 These results indicate partial class separability with meaningful top-k retrieval, while still leaving room for stronger top-1 performance through additional data balancing, augmentation, and hyperparameter tuning.
 
-## Application Evidence (Required Before Final Submission)
-
-Add screenshots or short clips in this section before final submission. At minimum include:
-
-1. Running Gradio webcam app UI
-2. Prediction output with top-k probabilities
-3. Repository structure or training notebook output snapshot
-
-You can store these assets under a folder such as `docs/images/` and link them here.
+## Screenshots
 
 ---
 
@@ -277,21 +269,5 @@ Main dependencies (see `requirements.txt` for full list):
 - Slides: *(link to be added)*
 - Demo video: *(YouTube link to be added)*
 
-For the final video, ensure you include:
-
-1. Problem description
-2. Neural-network design explanation
-3. End-to-end pipeline summary
-4. Live application demo
-5. Quick repository walkthrough
-
 ---
-
-## Submission Checklist
-
-- [ ] Project ID (from TA)
-- [ ] Public GitHub repository URL
-- [ ] PDF slides uploaded/submitted
-- [ ] Demo video URL (<= 10 minutes)
-- [ ] README contains setup, technical discussion, and application evidence
  
