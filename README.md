@@ -58,7 +58,7 @@ Our core model, `ASLVideoMAE`, is built upon the `MCG-NJU/videomae-base` archite
 
 ### 2. Software Components & Pipeline
 Our end-to-end system is broken down into modular Jupyter Notebooks:
-* **Data Ingestion (`01_dataAnalysis.ipynb`):** We use the Voxel51/FiftyOne library to programmatically fetch and filter the WLASL (Word-Level ASL) dataset from HuggingFace, narrowing it down to the top 20 classes.
+* **Data Ingestion (`01_dataAnalysis.ipynb`):** We use the Voxel51/FiftyOne library to programmatically fetch and filter the WLASL (Word-Level ASL) dataset from HuggingFace, narrowing it down to the top 100 classes.
 * **Data Preprocessing (`preprocessing.ipynb`):** Videos are processed using OpenCV (`cv2`) to extract exactly 16 uniform frames per video, resized to 224x224. We integrated **Google MediaPipe** to detect hand landmarks, ensuring the network emphasizes hand articulation.
 * **Modeling & Inference (`models.ipynb` & `training.ipynb`):** The PyTorch inference engine takes the processed `(16, 3, 224, 224)` tensor and outputs the class probabilities. 
 
