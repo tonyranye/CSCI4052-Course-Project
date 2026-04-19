@@ -133,7 +133,7 @@ Predicted ASL gloss
 
 ---
 
-## Repository Structure (Key Paths)
+## Repository Structure
 
 ```text
 .
@@ -206,6 +206,10 @@ python deployment/app.py
 ```
 
 which will generate a public gradio url the application.
+
+### Demo Video
+
+https://github.com/user-attachments/assets/bcf290dc-7ed1-4af7-856f-86cc0634af25
 
 
 ## Dependencies
