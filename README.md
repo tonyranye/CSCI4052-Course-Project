@@ -49,6 +49,20 @@ The deployed model predicts 100 gloss labels:
 
 ---
 
+## Theoretical and Software Engineering Discussion
+
+### 1. Neural Network Design (ASLVideoMAE)
+Our core model, `ASLVideoMAE`, is built upon the `MCG-NJU/videomae-base` architecture loaded via HuggingFace Transformers. 
+* **Theoretical Justification:** We opted for a Video Masked Autoencoder (VideoMAE) rather than a standard 3D-CNN because Vision Transformers (ViTs) excel at capturing long-range dependencies in sequence data. VideoMAE treats video as a sequence of tubelets, allowing the self-attention mechanism to heavily weight the relationships between spatial hand positions across different temporal frames.
+* **Training Details:** The model was trained in PyTorch using CrossEntropyLoss and an `AdamW` optimizer (with weight decay) paired with a `CosineAnnealingLR` scheduler to ensure smooth convergence over 100 epochs.
+
+### 2. Software Components & Pipeline
+Our end-to-end system is broken down into modular Jupyter Notebooks:
+* **Data Ingestion (`01_dataAnalysis.ipynb`):** We use the Voxel51/FiftyOne library to programmatically fetch and filter the WLASL (Word-Level ASL) dataset from HuggingFace, narrowing it down to the top 20 classes.
+* **Data Preprocessing (`preprocessing.ipynb`):** Videos are processed using OpenCV (`cv2`) to extract exactly 16 uniform frames per video, resized to 224x224. We integrated **Google MediaPipe** to detect hand landmarks, ensuring the network emphasizes hand articulation.
+* **Modeling & Inference (`models.ipynb` & `training.ipynb`):** The PyTorch inference engine takes the processed `(16, 3, 224, 224)` tensor and outputs the class probabilities. 
+
+---
 ## Model and Pipeline
 
 ### Neural Network Design
@@ -183,49 +197,16 @@ Run notebooks in this order:
 3. `models.ipynb` - verify model architecture
 4. `training.ipynb` - train and validate model, save checkpoints
 
-### Deployment (webcam app)
+### Deployment
+
+To set up the Gradio link run:
 
 ```bash
 python deployment/app.py
 ```
 
-By default, deployment resolves artifacts in this order:
+which will generate a public gradio url the application.
 
-- Checkpoint: `checkpoints/wlasl_top100/best.pt` then `checkpoints/wlasl_top100/last.pt`
-- Labels: `processed/wlasl_top100/labels_top100.json` then `wlasl_full_top_100_dataset/labels_top100.json`
-
-Optional environment overrides:
-
-- `ASL_CHECKPOINT`
-- `ASL_LABELS`
-- `ASL_NUM_FRAMES` (default 16)
-- `ASL_MIN_READY_FRAMES` (default 8)
-- `ASL_INFER_EVERY_N` (default 2)
-- `ASL_SMOOTHING_WINDOW` (default 4)
-- `ASL_IMG_SIZE` (default 224)
-
-### Deployment Runtime Options
-
-- Local GPU deployment (current default): run `python deployment/app.py`.
-- Colab-friendly path (optional): run notebook pipeline and Gradio in Colab
-
-## Validation Snapshot (Current Top100 Run)
-
-From `processed/wlasl_top100/val_topk_summary.csv`:
-
-| Metric | Value |
-|---|---:|
-| Top-1 accuracy | 23.00% |
-| Top-3 accuracy | 36.40% |
-| Top-5 accuracy | 42.13% |
-| Top-10 accuracy | 51.40% |
-| Top-20 accuracy | 62.73% |
-
-These results indicate partial class separability with meaningful top-k retrieval, while still leaving room for stronger top-1 performance through additional data balancing, augmentation, and hyperparameter tuning.
-
-## Screenshots
-
----
 
 ## Dependencies
 
@@ -246,13 +227,6 @@ Main dependencies (see `requirements.txt` for full list):
 - tqdm
 - gradio
 - torchcodec
-
----
-
-## Notes
-
-- If MediaPipe's `mp.solutions` API is unavailable in your environment, the deployment app automatically falls back to full-frame mode.
-- A GPU is strongly recommended for training; CPU-only training is significantly slower.
 
 ---
 
