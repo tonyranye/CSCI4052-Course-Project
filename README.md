@@ -205,7 +205,7 @@ To set up the Gradio link run:
 python deployment/app.py
 ```
 
-which will generate a public gradio url the application.
+which will generate a public Gradio URL for the application.
 
 ### Demo Video
 
