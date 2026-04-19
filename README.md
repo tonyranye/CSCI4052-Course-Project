@@ -155,7 +155,7 @@ Predicted ASL gloss
 │       ├── train_metadata.jsonl
 │       ├── val_metadata.jsonl
 │       ├── test_metadata.jsonl
-│       └── clips/
+│       └── clips/                   # Not included as it is too large to push to GitHub
 ├── wlasl_full_top_100_dataset/
 │   ├── labels_top100.json
 │   └── class_statistics.txt
