@@ -1,0 +1,15 @@
+torch
+torchvision
+transformers
+mediapipe
+opencv-python
+numpy
+scikit-learn
+matplotlib
+fiftyone
+datasets
+av
+pandas
+tqdm
+gradio
+torchcodec
