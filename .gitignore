@@ -2,4 +2,5 @@
 .venv
 wlasl_full_top_100_dataset
 deployment/README.md
-processed
+processed/wlasl_top100/*.csv
+processed/wlasl_top100/clips
