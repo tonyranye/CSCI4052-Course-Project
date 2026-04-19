@@ -12,7 +12,7 @@ This project is an end-to-end AI application that recognizes American Sign Langu
 
 The current repository includes both training notebooks and a deployment app (`deployment/app.py`) that performs real-time webcam inference with MediaPipe-assisted dynamic cropping via Gradio.
 
-### Problem Formulation: Why Neural Models Are Needed
+### Problem Formulation: Why Modern Neural Models Are Needed
 
 Traditional computer-vision pipelines struggle with sign-language understanding because ASL semantics are strongly temporal. A detector such as YOLO is excellent for spatial object localization in single frames, but it does not model how handshape, trajectory, and timing evolve across a clip.
 
@@ -245,7 +245,7 @@ Main dependencies (see `requirements.txt` for full list):
 
 ## Presentation and Video
 
-- Slides: *(link to be added)*
+- Slides: *https://docs.google.com/presentation/d/17DZnsnPuLS3JhVJToF3YoACcxvVZ--xMSbrb241gj6Q/edit?slide=id.g3d74f44f6d4_0_80#slide=id.g3d74f44f6d4_0_80*
 - Demo video: *(YouTube link to be added)*
 
 ---
