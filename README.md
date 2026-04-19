@@ -1,4 +1,4 @@
-# ASL Sign Language Interpreter — CSCI 4052U Final Project
+# ASL Sign Language Interpreter CSCI 4052U Final Project
  
 **Team:** Tony Akinniranye, Lukas Fenkam, Jaathavan  
 **Course:** CSCI 4052U — Machine Learning II, Ontario Tech University
