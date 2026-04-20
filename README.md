@@ -24,14 +24,14 @@ Before modern video transformers, many systems relied on static hand snapshots o
 
 We use the **WLASL (Word-Level American Sign Language)** dataset, loaded from Hugging Face (`Voxel51/WLASL`) and processed into a Top-100 subset.
 
-### Top100 subset (current)
+### Top 100 subset
 
 - Classes: **100**
 - Samples per class: **100**
 - Total samples: **10,000**
 - Processed labels file: `processed/wlasl_top100/labels_top100.json`
 
-### Stratified split (current)
+### Stratified split
 
 | Split | Count |
 |---|---:|
@@ -67,7 +67,7 @@ Our end-to-end system is broken down into modular Jupyter Notebooks:
 
 ### Neural Network Design
 
-Our core model is `ASLVideoMAEClassifier`, based on Hugging Face `MCG-NJU/videomae-base`.
+Our core model is `ASLVideoMAEClassifier`, based on the Hugging Face `MCG-NJU/videomae-base` model.
 
 - Backbone: VideoMAE transformer encoder
 - Head: `LayerNorm -> Dropout -> Linear(hidden_size, 100)`
@@ -246,7 +246,7 @@ Main dependencies (see `requirements.txt` for full list):
 ## Presentation and Video
 
 - Slides: *https://docs.google.com/presentation/d/17DZnsnPuLS3JhVJToF3YoACcxvVZ--xMSbrb241gj6Q/edit?slide=id.p#slide=id.p*
-- Presentation + Demo Video: *https://www.youtube.com/watch?v=0FKazTIN4EM*
+- Full Video with Presentation and Demo: *https://www.youtube.com/watch?v=0FKazTIN4EM*
 
 ---
  
