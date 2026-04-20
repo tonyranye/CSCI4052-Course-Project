@@ -96,7 +96,7 @@ Raw .mp4 video or webcam frame stream
       ->
 Frame extraction / buffering (16 frames)
       ->
-MediaPipe-based dynamic crop (fallback to full frame)
+MediaPipe-based dynamic crop
       ->
 Resize + normalize -> (16, 3, 224, 224)
       ->
