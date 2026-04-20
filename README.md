@@ -246,7 +246,7 @@ Main dependencies (see `requirements.txt` for full list):
 ## Presentation and Video
 
 - Slides: *https://docs.google.com/presentation/d/17DZnsnPuLS3JhVJToF3YoACcxvVZ--xMSbrb241gj6Q/edit?slide=id.p#slide=id.p*
-- Demo video: *(YouTube link to be added)*
+- Presentation + Demo Video: *https://www.youtube.com/watch?v=0FKazTIN4EM*
 
 ---
  
